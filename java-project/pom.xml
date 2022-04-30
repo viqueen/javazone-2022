@@ -24,6 +24,7 @@
                 <configuration>
                     <compilerArgument>-Xlint:all</compilerArgument>
                     <showWarnings>true</showWarnings>
+                    <failOnWarning>true</failOnWarning>
                 </configuration>
            </plugin>
         </plugins>
