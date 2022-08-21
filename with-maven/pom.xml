@@ -5,12 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.viqueen</groupId>
-    <artifactId>java-project</artifactId>
+    <artifactId>javazone-2022-with-maven</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <compiler.args/>
+        <maven.compiler.source>18</maven.compiler.source>
+        <maven.compiler.target>18</maven.compiler.target>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -22,11 +23,28 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.10.1</version>
                 <configuration>
-                    <compilerArgument>-Xlint:all</compilerArgument>
+                    <compilerArgument>${compiler.args}</compilerArgument>
                     <showWarnings>true</showWarnings>
                     <failOnWarning>true</failOnWarning>
                 </configuration>
            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.0.0</version>
+                <configuration>
+                    <mainClass>org.viqueen.ShouldItCompile</mainClass>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>lint-all</id>
+            <properties>
+                <compiler.args>-Xlint:all</compiler.args>
+            </properties>
+        </profile>
+    </profiles>
 </project>
