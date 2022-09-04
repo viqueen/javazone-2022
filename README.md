@@ -13,7 +13,13 @@ git clone git@github.com:viqueen/javazone-2022.git ~/workshop-sources/javazone-2
 
 ```bash
 cd ~/workshop-sources/javazone-2022
-docker compose up
+docker compose up -d
+```
+
+- open terminal session
+
+```bash
+docker exec -it javazone-2022-workshop-1 bash
 ```
 
 ## with-maven
