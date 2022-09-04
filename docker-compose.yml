@@ -6,5 +6,5 @@ services:
     stdin_open: true
     tty: true
     volumes:
-      - ~/workshop-sources/jdk:/sources/jdk
-      - ~/workshop-sources/javazone-2022:/sources/javazone-2022
+      - ~/workshop-sources/jdk:/workshop-sources/jdk
+      - ~/workshop-sources/javazone-2022:/workshop-sources/javazone-2022
