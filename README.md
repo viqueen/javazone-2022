@@ -1,6 +1,8 @@
-# javazone-2022: Will it run ? ... should it even compile ?
+# javazone-2022
 
-## getting started using docker
+## Will it run ? ... should it even compile ?
+
+### getting started using docker
 
 - clone them repos
 
@@ -24,6 +26,8 @@ docker compose up -d
 docker exec -it javazone-2022-workshop-1 bash
 ```
 
+### tasks
+
 <details>
 <summary>Task 1: compile the compiler and link it</summary>
 <p>
@@ -34,7 +38,10 @@ in the container terminal session
 ```bash
 cd /tmp/workshop-sources/jdk
 bash configure
-bash bin/idea.sh # if you are planning to use IntelliJ IDEA
+# if you are using IntelliJ IDEA
+bash bin/idea.sh 
+# if you are using VSCode
+make vscode-project
 
 make jdk
 ```
@@ -56,3 +63,29 @@ mvn compile exec:java # see runtime errors in action
 </p>
 </details>
 
+<details>
+<summary>Task 3: lint everything</summary>
+<p>
+
+- add a new lint option "everything" that operates the same as "all"
+
+</p>
+</details>
+
+<details>
+<summary>Task 3: lint bad cast - part one</summary>
+<p>
+
+- add a new lint option "bad-cast" that always emits a warning when enabled
+
+</p>
+</details>
+
+<details>
+<summary>Task 4: lint bad cast - part two</summary>
+<p>
+
+- update "bad-cast" to inspect cast chain for incompatibilities
+
+</p>
+</details>
