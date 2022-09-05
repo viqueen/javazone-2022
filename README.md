@@ -7,6 +7,8 @@
 ```bash
 git clone git@github.com:openjdk/jdk.git ~/workshop-sources/jdk
 git clone git@github.com:viqueen/javazone-2022.git ~/workshop-sources/javazone-2022
+
+ln -sfnv ~/workshop-sources /tmp/workshop-sources
 ```
 
 - compose them up
@@ -22,22 +24,35 @@ docker compose up -d
 docker exec -it javazone-2022-workshop-1 bash
 ```
 
-## with-maven
+<details>
+<summary>Task 1: compile the compiler and link it</summary>
+<p>
 
+in the container terminal session
+
+- build it
 ```bash
-git clone git@github.com:viqueen/javazone-2022.git
-cd javazone-2022/with-maven
+cd /tmp/workshop-sources/jdk
+bash configure
+bash bin/idea.sh # if you are planning to use IntelliJ IDEA
+
+make jdk
 ```
 
-- compile it
-
+- link it
 ```bash
-mvn compile -P lint-all
-mvn compile
+jenv add build/linux-x86_64-server-release/jdk
 ```
 
-- run it
-
+- test it on our maven project 
 ```bash
-mvn compile exec:java
+cd /tmp/workshop-sources/javazone-2022
+mvn compile -P lint-all # should fail build with redundant cast error
+mvn compile -P lint-everything # should fail build with error: invalid flag: -Xlint:everything
+
+mvn compile exec:java # see runtime errors in action
 ```
+
+</p>
+</details>
+
