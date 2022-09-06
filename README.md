@@ -29,6 +29,32 @@ docker exec -it javazone-2022-workshop-1 bash
 ### tasks
 
 <details>
+<summary>Task 0: IDE setup</summary>
+<p>
+in the container terminal session
+
+```bash
+cd /tmp/workshop-sources/jdk
+bash configure
+```
+
+if you are using IntelliJ IDEA
+```bash
+bash bin/idea.sh
+```
+
+if you are using VSCode
+```bash
+make vscode-project
+```
+
+open `build/linux-x86_64-server-release/jdk.code-workspace`
+
+
+</p>
+</details>
+
+<details>
 <summary>Task 1: compile the compiler and link it</summary>
 <p>
 
@@ -36,13 +62,6 @@ in the container terminal session
 
 - build it
 ```bash
-cd /tmp/workshop-sources/jdk
-bash configure
-# if you are using IntelliJ IDEA
-bash bin/idea.sh 
-# if you are using VSCode
-make vscode-project
-
 make jdk
 ```
 
